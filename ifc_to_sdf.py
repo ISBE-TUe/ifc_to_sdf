@@ -131,7 +131,7 @@ class IfcToSdf(object):
                 # create model.sdf
                 model_sdf_path = element_folder_path + '\\model.sdf'
                 model_meshes = 'model://' + element_name + '//meshes//{}'.format(element_name + '.dae')
-                exact_weight = 0
+                exact_weight = 1
                 for definition in _.IsDefinedBy:
                     if definition.is_a('IfcRelDefinesByProperties'):
                         property_set = definition.RelatingPropertyDefinition
@@ -145,7 +145,7 @@ class IfcToSdf(object):
                 model_sdf = """<?xml version="1.0" ?>
 <sdf version = '1.5'>
     <model name = "{0}">
-        <static>False</static>
+        <static>True</static>
         <self_collide>True</self_collide>
         <enable_wind>True</enable_wind>
         <pose>0 0 0 0 0 0</pose>
